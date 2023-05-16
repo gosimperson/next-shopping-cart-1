@@ -1,4 +1,21 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "m.media-amazon.com",
+        port: "",
+        pathname: "/images/**",
+      },
+      {
+        protocol: "http",
+        hostname: "ia.media-imdb.com",
+        port: "",
+        pathname: "/images/**",
+      },
+    ],
+  },
+};
 
 module.exports = nextConfig;
