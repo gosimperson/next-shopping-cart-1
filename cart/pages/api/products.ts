@@ -9,7 +9,11 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<IndexS>
 ) {
-  const db = (await connectDB).db("sample_mflix");
-  const result = await db.collection("movies").find().toArray();
-  console.log("______result______", result);
+  try {
+    const db = (await connectDB).db("sample_mflix");
+    const result = await db.collection("movies").find().limit(10).toArray();
+    res.status(200).json(result);
+  } catch (err) {
+    console.log("_____err_____", err);
+  }
 }

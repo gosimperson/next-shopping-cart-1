@@ -1,9 +1,16 @@
+import Header from "@/components/Header/Header";
+import GlobalStyle from "@/styles/GlobalStyles";
 import { AppProps } from "next/app";
+import { RecoilRoot } from "recoil";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Component {...pageProps} />
+      <GlobalStyle />
+      <RecoilRoot>
+        <Header />
+        <Component {...pageProps} />
+      </RecoilRoot>
     </>
   );
 }
